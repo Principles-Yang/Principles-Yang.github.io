@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-hk,en,default">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Android,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、动静态网页的区分静态、动态：1.不要与有“动感”混为一谈，H5也可以添加动画2.是否 随着 时间、地点、用户操作  的 改变而改变 动态网页 需要使用到 服务端脚本语言（JSP） 二、CS和BS架构CS：Client ServerCS不足：1.如果 软件升级， 那么全部软件都需要升级2.维护麻烦：需要维护每一台 客户端软件3.每一台客户端 都需要安装 客户端软件优势：UI美观、响应速度快  B">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1.JSP入门知识">
+<meta property="og:url" content="http://yoursite.com/2019/06/12/javaWeb1/index.html">
+<meta property="og:site_name" content="楊小白&#39;s blog">
+<meta property="og:description" content="一、动静态网页的区分静态、动态：1.不要与有“动感”混为一谈，H5也可以添加动画2.是否 随着 时间、地点、用户操作  的 改变而改变 动态网页 需要使用到 服务端脚本语言（JSP） 二、CS和BS架构CS：Client ServerCS不足：1.如果 软件升级， 那么全部软件都需要升级2.维护麻烦：需要维护每一台 客户端软件3.每一台客户端 都需要安装 客户端软件优势：UI美观、响应速度快  B">
+<meta property="og:locale" content="zh-hk">
+<meta property="og:image" content="en-resource://database/556:1">
+<meta property="og:image" content="en-resource://database/557:1">
+<meta property="og:image" content="en-resource://database/560:1">
+<meta property="og:image" content="en-resource://database/561:1">
+<meta property="og:image" content="en-resource://database/558:1">
+<meta property="og:image" content="en-resource://database/559:1">
+<meta property="og:image" content="en-resource://database/563:1">
+<meta property="og:image" content="en-resource://database/562:1">
+<meta property="og:updated_time" content="2019-06-19T01:02:57.586Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1.JSP入门知识">
+<meta name="twitter:description" content="一、动静态网页的区分静态、动态：1.不要与有“动感”混为一谈，H5也可以添加动画2.是否 随着 时间、地点、用户操作  的 改变而改变 动态网页 需要使用到 服务端脚本语言（JSP） 二、CS和BS架构CS：Client ServerCS不足：1.如果 软件升级， 那么全部软件都需要升级2.维护麻烦：需要维护每一台 客户端软件3.每一台客户端 都需要安装 客户端软件优势：UI美观、响应速度快  B">
+<meta name="twitter:image" content="en-resource://database/556:1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/12/javaWeb1/">
+
+
+
+
+
+  <title>1.JSP入门知识 | 楊小白's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">楊小白's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            歸檔
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/12/javaWeb1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yang xiaobai">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="楊小白's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">1.JSP入门知识</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-06-12T18:50:46+08:00">
+                2019-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">javaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>一、动静态网页的区分</strong><br>静态、动态：<br>1.不要与有“动感”混为一谈，H5也可以添加动画<br>2.是否 随着 时间、地点、用户操作  的 改变而改变</p>
+<p>动态网页 需要使用到 服务端脚本语言（JSP）</p>
+<p><strong>二、CS和BS架构</strong><br><em>CS：Client Server</em><br>CS不足：<br>1.如果 软件升级， 那么全部软件都需要升级<br>2.维护麻烦：需要维护每一台 客户端软件<br>3.每一台客户端 都需要安装 客户端软件<br>优势：<br>UI美观、响应速度快</p>
+<p><img src="en-resource://database/556:1" alt="6bd599bd1cb3227178c68e000f503106.png"></p>
+<p><em>BS ：Broswer Server</em><br>客户端可以通过 浏览器  直接访问服务端<br>部署少</p>
+<p><img src="en-resource://database/557:1" alt="2218877f803ede82b77d1da0d3ea67a2.png"></p>
+<p>注意：bs和cs各有优势。 </p>
+<p>三、tomcat解压后目录：<br>bin:可执行文件（startup.bat    shutdown.bat）<br>conf:配置文件（server.xml）<br>lib：tomcat依赖的jar文件<br>log:日志文件（记录出错等信息）<br>temp:临时文件<br>webapps：可执行的项目（将我们开发的项目 放入该目录）<br>work:存放由jsp翻译成的java,以及编辑成的class文件(jsp  -&gt;java -&gt;class)</p>
+<p><strong>四、配置tomcat</strong><br>1.先期需配置jdk  (必须配置JAVA_HOME)<br>java_home  classPath  path</p>
+<p><img src="en-resource://database/560:1" alt="9a3f182d75e3519f191669a463b5c528.png"></p>
+<p><img src="en-resource://database/561:1" alt="046cd3a96bbcf6950db92c51f8088757.png"></p>
+<p>2.配置catalina_home</p>
+<p><img src="en-resource://database/558:1" alt="033a519ee7d2eca65453e4dd6fcbca7b.png"></p>
+<p>双击bin/startup.bat启动tomacat，</p>
+<p><img src="en-resource://database/559:1" alt="275f636ee67a9e3e73c22e81cf306a3d.png"></p>
+<p>常见错误： 可能与其他服务的端口号冲突<br>tomcat端口号默认8080 （此端口号较为常见，容易冲突），建议修改此端口 （8888）</p>
+<p><img src="en-resource://database/563:1" alt="b534b7bff16bd2e552665177db57f8d9.png"></p>
+<p><strong>五、访问tomcat</strong><br><a href="http://localhost:8888/" target="_blank" rel="noopener">http://localhost:8888/</a></p>
+<p><img src="en-resource://database/562:1" alt="aec35fb8fee1c694d66aaa97a66045c8.png"></p>
+<p>常见状态码：<br>200：一切正常<br>300/301: 页面重定向 （跳转）<br>404:资源不存在<br>403：权限不足 （如果访问a目录，但是a目录设置 不可见）<br>500：服务器内部错误（代码有误）<br>其他编码：<a href="https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81" target="_blank" rel="noopener">Http Stutas</a></p>
+<p>jsp：在html中嵌套的java代码 </p>
+<p> 在项目/WEB-INF/web.xml中设置 默认的 初始页面(找页面用的，下图意味着先打开index.jsp)<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">     &lt;welcome-file-list&gt;</span><br><span class="line">        &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;</span><br><span class="line">    &lt;/welcome-file-list&gt;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">**六、虚拟路径**</span><br><span class="line">1.方式一</span><br><span class="line">将web项目配置到 webapps以外的目录</span><br><span class="line">conf/server.xml中配置</span><br><span class="line">host标签中：</span><br><span class="line">&lt;Context  docBase=&quot;D:\study\JspProject&quot;  path=&quot;/JspProject&quot;   /&gt;</span><br><span class="line"></span><br><span class="line">docBase：实际路径 </span><br><span class="line">path：虚拟路径  （绝对路径、相对路径【相对于webapps】）</span><br><span class="line">重启Tomcat</span><br><span class="line"></span><br><span class="line">![278eb027cc89dcae108b3fe0512c108f.png](en-resource://database/590:1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2.方式二</span><br><span class="line">D:\apache-tomcat-8.5.30\conf\Catalina\localhost（Tomcat目录）</span><br><span class="line">中新建   “项目名.xml”中新增一行：</span><br><span class="line">&lt;Context  docBase=&quot;D:\study\JspProject&quot;  path=&quot;/JspProject&quot;   /&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">**七、虚拟主机**</span><br><span class="line"></span><br><span class="line">![5000a7a2588053f1ed53efad68eecded.png](en-resource://database/592:1)</span><br><span class="line"></span><br><span class="line">虚拟主机就是抢先在主机访问</span><br><span class="line">通过www.test.com访问本机</span><br><span class="line">第一步. conf/server.xml</span><br></pre></td></tr></table></figure></p>
+  <engine name="Catalina" defaulthost="www.test.com">
+
+<pre><code>&lt;Host appBase=&quot;D:\study\JspProject&quot; name=&quot;www.test.com&quot;&gt;
+      &lt;Context docBase=&quot;D:\study\JspProject&quot;   path=&quot;/&quot;/&gt;
+&lt;/Host&gt;</code></pre><pre><code>![bcf2362011fea77c0f44663142cce99b.png](en-resource://database/594:1)
+![f021e8bc7bd479b2a9a2c21f3898102e.png](en-resource://database/596:1)
+
+
+第二步.C:\Windows\System32\drivers\etc\host 修改host文件
+增加
+127.0.0.1       www.test.com
+
+
+流程：
+www.test.com -&gt; host找映射关系 -&gt;server.xml找Engine的defaultHost -&gt;通过&quot;/&quot;映射到D:\study\JspProject
+为了后续学习，将以上恢复成默认
+
+
+**八、JSP执行流程**
+jsp- java(Servlet文件) -class
+D:\study\apache-tomcat-8.5.30（Tomcat安装路径下）\work\Catalina\localhost\JspProject\org\apache\jsp
+
+![07ae036faefd7b8b0b1e7868cdfc35d4.png](en-resource://database/598:1)
+
+
+Jsp 和Servlet 可以相互转换  
+
+
+因为第一请求服务端 会有翻译 和编译的过程，因此比较慢； 后续访问 可以直接访问class,因此速度较快。但是 如果 服务端修改了代码，则再次访问时  会重新的翻译、编译。
+
+
+
+
+
+
+
+
+
+
+</code></pre></engine>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/11/nihao/" rel="next" title="Android:简单绘制一个可以自定义的百分比进度条">
+                <i class="fa fa-chevron-left"></i> Android:简单绘制一个可以自定义的百分比进度条
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/19/classdiagram/" rel="prev" title="类图">
+                类图 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yang xiaobai</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分類</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">標籤</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yang xiaobai</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
